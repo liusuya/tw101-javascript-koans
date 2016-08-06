@@ -13,6 +13,5 @@ $(document).ready(function() {
     countNotes(10, 20, 100);
 
     // Problem 5
-    // call your problem 5 code here
-
+    reorderWordsInAd([["zara", "dhyaan", "dein"],["mazarat", "chahenge"],["attention", "please"]]);
 });

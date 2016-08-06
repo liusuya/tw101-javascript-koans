@@ -33,10 +33,43 @@
      count: 7
  */
 
+function reverseWords(arrayList) {
+    var arraySize = arrayList.length;
+    var reversedString = "";
+
+    for (var i = 0; i < arraySize; i++) {
+        reversedString += (arrayList[arraySize-i-1] + " ");
+    }
+
+    return reversedString;
+}
+
+function get2X2arrayNumCells(array) {
+    var arrayOuterSize = array.length;
+    var numCells = 0;
+    for (var i = 0; i < arrayOuterSize; i++) {
+        numCells += array[i].length;
+    }
+    return numCells;
+}
+
 function changeElementText(element, answer) {
     $(element).text(answer);
 }
 
 function reorderWordsInAd (original) {
 
+    var hindiOrig = original[0].join(" ");
+    var engOrig = original[2].join(" ");
+    var urduAd = original[1];
+    var urduOrig = urduAd.join(" ");
+
+    var correctUrdu = reverseWords(urduAd);
+    var correctOrder = hindiOrig + " " + correctUrdu + engOrig;
+
+    changeElementText("#hindiOrig", hindiOrig);
+    changeElementText("#urduOrig", urduOrig);
+    changeElementText("#engOrig", engOrig);
+    changeElementText("#correctOrder", correctOrder);
+    changeElementText("#count", get2X2arrayNumCells(original));
 }
