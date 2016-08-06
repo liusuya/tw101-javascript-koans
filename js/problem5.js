@@ -33,4 +33,10 @@
      count: 7
  */
 
-// Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function reorderWordsInAd (original) {
+
+}
