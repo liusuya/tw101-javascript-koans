@@ -39,11 +39,14 @@ function changeElementText(element, answer) {
 }
 
 function isTrafficJam(numberOfAutoRickshaws, isAfterEightPm) {
-    changeElementText("#numberOfRickshaws", "some");
-    changeElementText("#beforeOrAfter", "before or after");
-    var answer = "maybe a";
+    changeElementText("#numberOfRickshaws", numberOfAutoRickshaws);
+    changeElementText("#beforeOrAfter", isAfterEightPm ? "after" : "before");
+    var answer = "";
 
-    // write some code here!
+    if (!isAfterEightPm && (numberOfAutoRickshaws >= 40))
+        answer = "a";
+    else
+        answer = "no";
 
     changeElementText("#aOrNo", answer);
 }

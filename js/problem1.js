@@ -19,6 +19,11 @@
 
 */
 
+function isDivisible(num, divisor) {
+    if (num%divisor == 0)
+        return true;
+    return false;
+}
 
 function changeElementText(element, answer) {
     $(element).text(answer);
@@ -27,8 +32,23 @@ function changeElementText(element, answer) {
 function kiteGame(numberOfKites) {
     changeElementText("#numberOfKites", numberOfKites);
     var answer = "";
+    var printNum = true;
 
-    // write some code here!
+    for (var kiteNumber = 1; kiteNumber <= numberOfKites; kiteNumber++) {
+
+        if (isDivisible(kiteNumber,3)) {
+            answer += "Penche! ";
+            printNum = false;
+        }
+        if (isDivisible(kiteNumber,5)) {
+            answer += "Ipo kaate! ";
+            printNum = false;
+        }
+        if (printNum)
+            answer+=(kiteNumber + " ");
+
+        printNum = true;
+    }
 
     changeElementText("#answer", answer);
 }

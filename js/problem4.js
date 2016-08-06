@@ -27,3 +27,18 @@
 */
 
 // Write your JavaScript here
+
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function countNotes() {
+    changeElementText("#allNotes", "some");
+    changeElementText("#total", "amount");
+
+    var fare;
+
+
+
+    //changeElementText("#fare", fare);
+}
