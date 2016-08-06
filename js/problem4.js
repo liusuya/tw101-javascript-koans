@@ -28,17 +28,50 @@
 
 // Write your JavaScript here
 
+
+function isValidCurrency(amount) {
+    var validDenominations = [5, 10, 20, 50, 100, 500, 1000];
+    if (validDenominations.indexOf(amount) > -1)
+        return true;
+    return false;
+}
+
+function formattedNote(amount, argIndex) {
+    var formattedAmount = amount;
+
+    if (argIndex > 0) //if is the first in the list, don't add comma
+        formattedAmount = ", " + formattedAmount;
+    return formattedAmount;
+}
+
 function changeElementText(element, answer) {
     $(element).text(answer);
 }
 
 function countNotes() {
-    changeElementText("#allNotes", "some");
-    changeElementText("#total", "amount");
 
-    var fare;
+    var allNotes = "";
+    var total = 0;
+    var argLen = arguments.length;
+    var continueAdding = true;
+    var curArg;
 
+    if (argLen == 0)
+        allNotes = "no ";
 
+    for (var argIndex = 0; argIndex < argLen; argIndex++) {
+         curArg = arguments[argIndex];
+        allNotes += formattedNote(curArg, argIndex);
+        if (continueAdding) {
+            if(isValidCurrency(curArg)) {
+                total += curArg;
+            }
+            else {
+                continueAdding = false;
+            }
+        }
+    }
 
-    //changeElementText("#fare", fare);
+    changeElementText("#allNotes", allNotes);
+    changeElementText("#total", total);
 }
